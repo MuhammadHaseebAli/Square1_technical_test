@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Post;
+use App\Models\Blog;
 
 class FetchBlogs implements ShouldQueue
 {
@@ -33,11 +33,11 @@ class FetchBlogs implements ShouldQueue
     {
         $url = 'https://sq1-api-test.herokuapp.com/posts';
         $json = json_decode(file_get_contents($url), true);
-        foreach($json["data"] as $post){
-            Post::create([
-                'title'=>$post['title'],
-                'description'=>$post['description'],
-                'publication_date'=>$post['publication_date'],
+        foreach($json["data"] as $blog){
+            Blog::create([
+                'title'=>$blog['title'],
+                'description'=>$blog['description'],
+                'publication_date'=>$blog['publication_date'],
                 'user_id'=>1
             ]);
         }
