@@ -9,7 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="container my-12 mx-auto px-4 md:px-12">
-
                        <div class="mt-5 md:mt-0 md:col-span-2">
                           <form action="/blog/save" method="POST">
                               <input type="hidden" name="_token" value="{{ csrf_token() }}" />
